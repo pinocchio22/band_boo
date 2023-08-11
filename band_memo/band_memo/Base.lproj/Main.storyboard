@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iad-0n-qZP">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--폴더-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="band_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J8j-44-Llp">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPh-og-e5H">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <items>
+                                    <barButtonItem title="Item" image="folder.badge.plus" catalog="system" id="tlD-9J-KIX">
+                                        <connections>
+                                            <action selector="addFolderBtn:" destination="BYZ-38-t0r" id="Yj1-9c-X79"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QFm-1J-0Gd"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gK6-Qo-Iie"/>
+                                    <barButtonItem image="square.and.pencil" catalog="system" id="AVz-NH-nya">
+                                        <connections>
+                                            <action selector="addMemobtn:" destination="BYZ-38-t0r" id="6mj-5p-81A"/>
+                                            <segue destination="X2Z-3d-N6l" kind="show" identifier="BtnToShowMemo" id="4oN-Z2-Ms4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J8j-44-Llp" secondAttribute="trailing" id="4Cx-0F-j3Q"/>
+                            <constraint firstItem="UPh-og-e5H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OuO-L1-pF7"/>
+                            <constraint firstItem="UPh-og-e5H" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Pnd-0O-9F2"/>
+                            <constraint firstItem="J8j-44-Llp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VA4-9H-5fW"/>
+                            <constraint firstItem="UPh-og-e5H" firstAttribute="top" secondItem="J8j-44-Llp" secondAttribute="bottom" id="dhw-gq-yWi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UPh-og-e5H" secondAttribute="bottom" id="n9y-rB-MRS"/>
+                            <constraint firstItem="J8j-44-Llp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tJA-LT-Os8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="폴더" id="wBi-vT-aeV"/>
+                    <connections>
+                        <outlet property="folderTable" destination="J8j-44-Llp" id="ViF-Ls-GaH"/>
+                        <segue destination="gZs-Qz-OaJ" kind="show" identifier="ShowMemo" id="Z8B-Sw-1eI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990.0763358778624" y="3.5211267605633805"/>
+        </scene>
+        <!--메모-->
+        <scene sceneID="JAb-jh-64n">
+            <objects>
+                <viewController id="gZs-Qz-OaJ" customClass="MemoListViewController" customModule="band_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LJc-fD-QyX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOh-UX-dfB">
+                                <rect key="frame" x="0.0" y="798" width="393" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tFz-uv-Rvh"/>
+                                    <barButtonItem title="Item" id="eaS-AU-DJl">
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="l7C-VF-Q4n"/>
+                                    <barButtonItem image="square.and.pencil" catalog="system" id="1pk-uZ-Hb5">
+                                        <connections>
+                                            <action selector="addMemoBtn:" destination="gZs-Qz-OaJ" id="Q1T-9b-joA"/>
+                                            <segue destination="X2Z-3d-N6l" kind="show" identifier="BtnToShowMemo" id="pYG-Fx-iW6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HZ3-kN-54t">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="798"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <gestureRecognizers/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FYz-oq-8ir"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="gOh-UX-dfB" firstAttribute="top" secondItem="HZ3-kN-54t" secondAttribute="bottom" id="EPf-TL-ZW4"/>
+                            <constraint firstItem="FYz-oq-8ir" firstAttribute="trailing" secondItem="HZ3-kN-54t" secondAttribute="trailing" id="NWn-v4-qpk"/>
+                            <constraint firstItem="FYz-oq-8ir" firstAttribute="bottom" secondItem="gOh-UX-dfB" secondAttribute="bottom" id="c7d-yW-QsH"/>
+                            <constraint firstItem="HZ3-kN-54t" firstAttribute="leading" secondItem="FYz-oq-8ir" secondAttribute="leading" id="fbl-aT-WHr"/>
+                            <constraint firstItem="gOh-UX-dfB" firstAttribute="trailing" secondItem="FYz-oq-8ir" secondAttribute="trailing" id="g5J-Ef-97W"/>
+                            <constraint firstItem="gOh-UX-dfB" firstAttribute="leading" secondItem="FYz-oq-8ir" secondAttribute="leading" id="v4D-6x-v2r"/>
+                            <constraint firstItem="HZ3-kN-54t" firstAttribute="top" secondItem="FYz-oq-8ir" secondAttribute="top" id="x7j-5g-lCV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모" id="zbH-Dh-hQh">
+                        <barButtonItem key="rightBarButtonItem" image="ellipsis.circle" catalog="system" id="Vsm-Zl-fZd">
+                            <connections>
+                                <action selector="menuBtn:" destination="gZs-Qz-OaJ" id="a0n-Ya-BUJ"/>
+                                <segue destination="wWC-KD-ivz" kind="show" identifier="showCollection" id="08J-pB-eTs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addBtnOutlet" destination="1pk-uZ-Hb5" id="D03-fX-Xkz"/>
+                        <outlet property="memoTable" destination="HZ3-kN-54t" id="vxM-3b-7Zu"/>
+                        <outlet property="toolbarCount" destination="eaS-AU-DJl" id="Dm3-TW-Lgh"/>
+                        <segue destination="X2Z-3d-N6l" kind="show" identifier="ShowEditMemo" id="XqI-BO-hzS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxU-QS-JO3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2865" y="4"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="smq-oS-cWw">
+            <objects>
+                <viewController id="wWC-KD-ivz" customClass="CollectionViewController" customModule="band_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SvC-Ji-x0I">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NsD-IH-jA0">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xBd-vL-TTf">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zer-gg-Mgb">
+                                <rect key="frame" x="0.0" y="798" width="393" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="E8L-nq-B4G"/>
+                                    <barButtonItem title="Item" id="hLL-jT-UoV">
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pL7-Qz-5jl"/>
+                                    <barButtonItem image="square.and.pencil" catalog="system" id="vQb-8e-1OT">
+                                        <connections>
+                                            <action selector="addMemoBtn:" destination="gZs-Qz-OaJ" id="X5a-YB-mju"/>
+                                            <segue destination="X2Z-3d-N6l" kind="show" identifier="BtnToShowMemo" id="qoY-M2-DFL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gMN-f1-Rdt"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="gMN-f1-Rdt" firstAttribute="trailing" secondItem="NsD-IH-jA0" secondAttribute="trailing" id="Clr-ST-gAj"/>
+                            <constraint firstItem="Zer-gg-Mgb" firstAttribute="trailing" secondItem="gMN-f1-Rdt" secondAttribute="trailing" id="JIX-0U-q10"/>
+                            <constraint firstItem="NsD-IH-jA0" firstAttribute="leading" secondItem="gMN-f1-Rdt" secondAttribute="leading" id="JVO-dm-AfY"/>
+                            <constraint firstItem="gMN-f1-Rdt" firstAttribute="bottom" secondItem="Zer-gg-Mgb" secondAttribute="bottom" id="au6-BU-Puj"/>
+                            <constraint firstItem="gMN-f1-Rdt" firstAttribute="bottom" secondItem="NsD-IH-jA0" secondAttribute="bottom" id="eWM-Yj-Twd"/>
+                            <constraint firstItem="Zer-gg-Mgb" firstAttribute="leading" secondItem="gMN-f1-Rdt" secondAttribute="leading" id="fem-Rc-4Zo"/>
+                            <constraint firstItem="NsD-IH-jA0" firstAttribute="top" secondItem="gMN-f1-Rdt" secondAttribute="top" id="nUZ-wt-VbX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6em-Sh-8ND"/>
+                    <connections>
+                        <outlet property="memoCollection" destination="NsD-IH-jA0" id="Dlv-VF-5hd"/>
+                        <outlet property="toolbarCount" destination="hLL-jT-UoV" id="1S8-k0-jg5"/>
+                        <segue destination="gZs-Qz-OaJ" kind="show" identifier="showTable" id="e40-3g-c0Y"/>
+                        <segue destination="X2Z-3d-N6l" kind="show" identifier="ShowEditMemo" id="EaH-1n-9ig"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCa-CP-txl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3738" y="4"/>
+        </scene>
+        <!--Edit Memo View Controller-->
+        <scene sceneID="wvF-xb-U66">
+            <objects>
+                <viewController id="X2Z-3d-N6l" customClass="EditMemoViewController" customModule="band_memo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bKn-vg-KtS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DIZ-tE-nDy">
+                                <rect key="frame" x="20" y="0.0" width="353" height="842"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lnh-J7-tiE"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="DIZ-tE-nDy" firstAttribute="top" secondItem="lnh-J7-tiE" secondAttribute="top" id="BL6-Dn-aIl"/>
+                            <constraint firstItem="DIZ-tE-nDy" firstAttribute="leading" secondItem="lnh-J7-tiE" secondAttribute="leading" constant="20" id="LRG-jR-7Am"/>
+                            <constraint firstItem="lnh-J7-tiE" firstAttribute="bottom" secondItem="DIZ-tE-nDy" secondAttribute="bottom" id="NJ1-zE-DKi"/>
+                            <constraint firstItem="lnh-J7-tiE" firstAttribute="trailing" secondItem="DIZ-tE-nDy" secondAttribute="trailing" constant="20" id="alL-qS-fc2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ijG-5G-UMt">
+                        <nil key="title"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="완료" id="Bme-Ij-ziw">
+                                <connections>
+                                    <action selector="addBtn:" destination="X2Z-3d-N6l" id="jMx-Ys-f5g"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="ellipsis.circle" catalog="system" id="pWD-ki-f1x"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editTextView" destination="DIZ-tE-nDy" id="ARK-g5-t7B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3o-L2-mW4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2865" y="818"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LtC-16-Jfi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iad-0n-qZP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FIo-8E-9KS">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="tintColor" systemColor="systemYellowColor"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hkU-fV-bpy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yGC-SS-vmV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1114" y="4"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pYG-Fx-iW6"/>
+        <segue reference="e40-3g-c0Y"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
+        <image name="folder.badge.plus" catalog="system" width="128" height="92"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
