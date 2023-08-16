@@ -3,4 +3,54 @@
    uuid = "4EA48986-9EB5-4EC1-9227-CB7DD44D61CD"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9132C57D-AFAD-4D26-B616-5B248A27C468"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "band_instagram/APIManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getMovie()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9132C57D-AFAD-4D26-B616-5B248A27C468 - defa0d0bccd1b3fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (band_instagram.Result) -&gt; () in band_instagram.APIManager.getMovie() async throws -&gt; Swift.Array&lt;band_instagram.MovieInfo&gt;"
+                  moduleName = "band_instagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/t2023-m0056/Desktop/band_boo/band_instagram/band_instagram/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  uuid = "9132C57D-AFAD-4D26-B616-5B248A27C468 - f86ab02a86b4b9f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for band_instagram.APIManager.getMovie() async throws -&gt; Swift.Array&lt;band_instagram.MovieInfo&gt;"
+                  moduleName = "band_instagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/t2023-m0056/Desktop/band_boo/band_instagram/band_instagram/APIManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "976">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

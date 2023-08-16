@@ -25,6 +25,12 @@ class MainVc: UIViewController {
     var pickerTextField: UITextField?
     let pickerList = ["인기순", "평점 평균"]
     
+    let sortBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,9 +43,11 @@ class MainVc: UIViewController {
         setSearchControllerUI()
         setPickerView()
         
+        
         Task {
             do {
-                PopularMovieList.popularMovieList.movieList = try await APICaller().getMovie()
+                PopularMovieList.popularMovieList.movieList = try await APIManager().getMovie()
+                popularList = PopularMovieList.popularMovieList.movieList
                 customCollectionView.reloadData()
             }
             catch MovieDownloadError.invalidURLString {
@@ -47,8 +55,14 @@ class MainVc: UIViewController {
             } catch MovieDownloadError.invalidServerResponse {
                 print("movie error - invalidServerResponse")
             }
-            popularList = PopularMovieList.popularMovieList.movieList
+            
+            //            guard let movies = try? await APIManager().getMovie() else { return }
+            //            PopularMovieList.popularMovieList.movieList = movies
         }
+//        APIManager().getMovie { movies in
+//            PopularMovieList.popularMovieList.movieList = movies
+//            self.customCollectionView.reloadData()
+//        }
     }
     
     // MARK: collectionView
@@ -89,8 +103,8 @@ class MainVc: UIViewController {
                     self.popularList.sort{ $0.popularity > $1.popularity }
                     self.customCollectionView.reloadData()
                 }),
-                UIAction(title: "평점 평균", image: nil, handler: { (_) in
-                    // 평점 정렬
+                UIAction(title: "평점순", image: nil, handler: { (_) in
+                    // 평점순 정렬
                     self.popularList.sort{ $0.voteAverage > $1.voteAverage }
                     self.customCollectionView.reloadData()
                 }),
@@ -108,11 +122,21 @@ class MainVc: UIViewController {
         
         sortBtn.translatesAutoresizingMaskIntoConstraints = false
         
-        sortBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        sortBtn.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        sortBtn.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        sortBtn.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -10).isActive = true
-        sortBtn.bottomAnchor.constraint(equalTo: customCollectionView.topAnchor, constant: -10).isActive = true
+        //        sortBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        //        sortBtn.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        //        sortBtn.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        //        sortBtn.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -10).isActive = true
+        //        sortBtn.bottomAnchor.constraint(equalTo: customCollectionView.topAnchor, constant: -10).isActive = true
+        
+        let sortBtnConstraints: [NSLayoutConstraint] = [
+            sortBtn.heightAnchor.constraint(equalToConstant: 40),
+            sortBtn.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            sortBtn.widthAnchor.constraint(equalToConstant: 100),
+            sortBtn.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -10),
+            sortBtn.bottomAnchor.constraint(equalTo: customCollectionView.topAnchor, constant: -10)
+        ]
+        
+        NSLayoutConstraint.activate(sortBtnConstraints)
         
         sortBtn.layer.cornerRadius = 10
         sortBtn.layer.borderWidth = 0.5
@@ -124,17 +148,17 @@ class MainVc: UIViewController {
     }
     
     @objc
-        func setSort() {
-            print("setSortTap")
-            showPickerView()
-        }
+    func setSort() {
+        print("setSortTap")
+        showPickerView()
+    }
     
     
     // MARK: searchBar
     private var searchController: UISearchController = {
         return UISearchController(searchResultsController: nil)
     }()
- 
+    
     
     func setSearchControllerUI() {
         searchController.searchBar.delegate = self
@@ -202,49 +226,49 @@ extension MainVc: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 // MARK: searchBar extension
 extension MainVc: UISearchBarDelegate {
     // 서치바에서 검색을 시작할 때 호출
-        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            self.searchController.searchBar.showsCancelButton = true
-            self.customCollectionView.reloadData()
-        }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchController.searchBar.showsCancelButton = true
+        self.customCollectionView.reloadData()
+    }
     
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            guard let text = searchBar.text?.lowercased() else { return }
-            Task {
-                do {
-                    PopularMovieList.popularMovieList.movieList = try await APICaller().searchMovie(text)
-                }
-                catch MovieDownloadError.invalidURLString {
-                    print("movie error - invalidURLString")
-                } catch MovieDownloadError.invalidServerResponse {
-                    print("movie error - invalidServerResponse")
-                }
-                popularList = PopularMovieList.popularMovieList.movieList
-                customCollectionView.reloadData()
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text?.lowercased() else { return }
+        Task {
+            do {
+                PopularMovieList.popularMovieList.movieList = try await APIManager().searchMovie(text)
             }
+            catch MovieDownloadError.invalidURLString {
+                print("movie error - invalidURLString")
+            } catch MovieDownloadError.invalidServerResponse {
+                print("movie error - invalidServerResponse")
+            }
+            popularList = PopularMovieList.popularMovieList.movieList
+            customCollectionView.reloadData()
         }
+    }
     
-//    // 서치바에서 검색버튼을 눌렀을 때 호출
-//        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//            dismissKeyboard()
-//
-//        }
+    //    // 서치바에서 검색버튼을 눌렀을 때 호출
+    //        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    //            dismissKeyboard()
+    //
+    //        }
     
     // 서치바에서 취소 버튼을 눌렀을 때 호출
-        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-            self.searchController.searchBar.text = ""
-            self.searchController.searchBar.resignFirstResponder()
-            self.customCollectionView.reloadData()
-        }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchController.searchBar.text = ""
+        self.searchController.searchBar.resignFirstResponder()
+        self.customCollectionView.reloadData()
+    }
     
     // 서치바 검색이 끝났을 때 호출
-        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-            self.customCollectionView.reloadData()
-        }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.customCollectionView.reloadData()
+    }
     
     // 서치바 키보드 내리기
-        func dismissKeyboard() {
-            searchController.searchBar.resignFirstResponder()
-        }
+    func dismissKeyboard() {
+        searchController.searchBar.resignFirstResponder()
+    }
 }
 
 // MARK: imageView extension

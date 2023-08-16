@@ -8,7 +8,5 @@
 import UIKit
 
 class CustomCollectionView: UICollectionView {
-
     // none
-
 }

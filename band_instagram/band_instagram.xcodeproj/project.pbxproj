@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FFC3A6852A88ABDE008F8C1E /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3A6842A88ABDE008F8C1E /* CustomCollectionView.swift */; };
+		FFC3A6872A88B081008F8C1E /* APIKEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3A6862A88B081008F8C1E /* APIKEY.swift */; };
 		FFC896A62A83B5EE007D8A86 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC896A52A83B5EE007D8A86 /* APIManager.swift */; };
 		FFD379042A820B1C00A75D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD379032A820B1C00A75D35 /* AppDelegate.swift */; };
 		FFD379062A820B1C00A75D35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD379052A820B1C00A75D35 /* SceneDelegate.swift */; };
@@ -15,10 +17,11 @@
 		FFD379102A820B1D00A75D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFD3790E2A820B1D00A75D35 /* LaunchScreen.storyboard */; };
 		FFD3791A2A82307300A75D35 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD379192A82307300A75D35 /* CollectionViewCell.swift */; };
 		FFD3791C2A82310C00A75D35 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3791B2A82310C00A75D35 /* Data.swift */; };
-		FFD3791E2A8231C500A75D35 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3791D2A8231C500A75D35 /* CustomCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FFC3A6842A88ABDE008F8C1E /* CustomCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
+		FFC3A6862A88B081008F8C1E /* APIKEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKEY.swift; sourceTree = "<group>"; };
 		FFC896A52A83B5EE007D8A86 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		FFD379002A820B1C00A75D35 /* band_instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = band_instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD379032A820B1C00A75D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +32,6 @@
 		FFD379112A820B1D00A75D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFD379192A82307300A75D35 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FFD3791B2A82310C00A75D35 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		FFD3791D2A8231C500A75D35 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +68,10 @@
 				FFD379052A820B1C00A75D35 /* SceneDelegate.swift */,
 				FFD379072A820B1C00A75D35 /* MainVc.swift */,
 				FFD379192A82307300A75D35 /* CollectionViewCell.swift */,
+				FFC3A6842A88ABDE008F8C1E /* CustomCollectionView.swift */,
 				FFD3791B2A82310C00A75D35 /* Data.swift */,
-				FFD3791D2A8231C500A75D35 /* CustomCollectionView.swift */,
 				FFC896A52A83B5EE007D8A86 /* APIManager.swift */,
+				FFC3A6862A88B081008F8C1E /* APIKEY.swift */,
 				FFD379112A820B1D00A75D35 /* Info.plist */,
 				FFD3790E2A820B1D00A75D35 /* LaunchScreen.storyboard */,
 				FFD3790C2A820B1D00A75D35 /* Assets.xcassets */,
@@ -148,10 +151,11 @@
 			files = (
 				FFD3791A2A82307300A75D35 /* CollectionViewCell.swift in Sources */,
 				FFD3791C2A82310C00A75D35 /* Data.swift in Sources */,
+				FFC3A6872A88B081008F8C1E /* APIKEY.swift in Sources */,
 				FFD379082A820B1C00A75D35 /* MainVc.swift in Sources */,
 				FFD379042A820B1C00A75D35 /* AppDelegate.swift in Sources */,
 				FFD379062A820B1C00A75D35 /* SceneDelegate.swift in Sources */,
-				FFD3791E2A8231C500A75D35 /* CustomCollectionView.swift in Sources */,
+				FFC3A6852A88ABDE008F8C1E /* CustomCollectionView.swift in Sources */,
 				FFC896A62A83B5EE007D8A86 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
